@@ -1,57 +1,52 @@
-const Data = $.getJSON(
-  "https://sensoralga.000webhostapp.com/datos.json",
-  function (json) {
-    console.log("json", json); // show the JSON file content into console
-    return json;
-  }
-);
-console.log("data", Data);
-
-//console.log(data);
+function getData() {
+  return $.getJSON("https://sensoralga.000webhostapp.com/datos.json").then(
+    function (json) {
+      return json;
+    }
+  );
+}
+getData().then(function (returndata) {
+  const data = returndata.contenidos;
+  const dataKeys = Object.values(data);
+  document
+    .querySelector("#circleId")
+    .addEventListener("click", () => circleClick(dataKeys));
+});
 
 let i = 0;
-let horizontal = 0;
-let vertical = 0;
-const newData = data.contenidos;
-//console.log("newData", newData);
-const keys = Object.values(newData);
-//console.log("keys", keys);
-
-document.querySelector("#circulo").addEventListener("click", circleClick);
-
-function circleClick() {
-  console.log("estoy en la funcion");
-
-  const textCircle = document.querySelector("#texto");
+function circleClick(keys) {
+  const textCircle = document.querySelector("#text");
   textCircle.textContent = keys[i].texto;
 
-  document.getElementById("circulo").style.backgroundColor = keys[i].color;
-  i = i + 1;
-  console.log("i", i);
-  if (i > 6) {
-    i = 0;
-  }
+  document.getElementById("circleId").style.backgroundColor = keys[i].color;
+
+  i += 1;
+  i > 6 ? (i = 0) : null;
 }
 
-document.onkeydown = checkKey;
+let horizontal = 0;
+let vertical = 0;
+const arrows = {
+  up: "38",
+  down: "40",
+  left: "37",
+  right: "39",
+};
 
-function checkKey(e) {
-  e = e || window.event;
+document.addEventListener("keydown", pressedKeyControl);
 
-  if (e.keyCode == "38") {
-    ///arriba
+function pressedKeyControl(e) {
+  if (e.keyCode == arrows.up) {
     vertical = vertical - 5;
     document.querySelector(".circle").style.top = `${vertical}px`;
-  } else if (e.keyCode == "40") {
+  } else if (e.keyCode == arrows.down) {
     vertical = vertical + 5;
     document.querySelector(".circle").style.top = `${vertical}px`;
-  } else if (e.keyCode == "37") {
-    ///derecha
+  } else if (e.keyCode == arrows.left) {
     horizontal = horizontal - 5;
     document.querySelector(".circle").style.left = `${horizontal}px`;
-  } else if (e.keyCode == "39") {
+  } else if (e.keyCode == arrows.right) {
     horizontal = horizontal + 5;
-
     document.querySelector(".circle").style.left = `${horizontal}px`;
   }
 }
