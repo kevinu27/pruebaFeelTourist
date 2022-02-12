@@ -7,10 +7,10 @@ function getData() {
 }
 getData().then(function (returndata) {
   const data = returndata.contenidos;
-  const dataKeys = Object.values(data);
+  const dataValues = Object.values(data);
   document
     .querySelector("#circleId")
-    .addEventListener("click", () => circleClick(dataKeys));
+    .addEventListener("click", () => circleClick(dataValues));
 });
 
 let i = 0;
