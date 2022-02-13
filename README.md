@@ -8,7 +8,7 @@ Linux
 <li><h4>Comando para listar un directorio: </h4></li>
 “ls” te lista las carpetas y archivos en donde estas, o “ll” que te la lista en vertical y dando más detalles.
 <li><h4>Comando para instalar una aplicación desde el repositorio predeterminado:</h4></li>
-Depende de la aplicacion, las .deb con “dpkg”, “apt-get”, y a veces me veo usando “sudo make install”. apt-get busca online y resulta sencillo. La diferencias de lo que hace por detras dpkg y make install no las tengo tan claras, pero por lo general lo que me voy a instalar lo busco en google primero.
+Con "apt-get" y la palabra clave del programa, que suele ser el nombre
 <li><h4>Comando para ver la configuración de red: </h4></li>
 “ifconfig”.
 <li><h4>Comando para ver los procesos ejecutándose actualmente: </h4></li>
