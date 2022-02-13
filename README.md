@@ -21,12 +21,6 @@ Depende de la aplicacion, las .deb con “dpkg”, “apt-get”, y a veces me v
 
 MySQL
 -------------
-Teniendo las siguientes tablas:
-* "alumnos" (dni,nombre,direccion,codigo_postal,telefono)
-* "asignaturas" (id_asignatura,nombre,carrera)
-* "alumnos_asignaturas" (id_relacion,dni,id_asignatura)
------
-
 <li><h4>1.- Obtener los datos de los alumnos que cursan la carrera de "Historia" y son del municipio de
 Firgas</h4></li>
 
