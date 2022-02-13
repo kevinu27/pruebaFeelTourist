@@ -21,7 +21,7 @@ function circleClick(keys) {
   document.getElementById("circleId").style.backgroundColor = keys[i].color;
 
   i += 1;
-  i > 6 ? (i = 0) : null;
+  i = i > 6 ? 0 : i;
 }
 
 let horizontal = 0;
